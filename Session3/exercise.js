@@ -77,14 +77,14 @@ for (let i = 0; i < numberCurrency.length; i++) {
   if (step !== 3) {
     step += 1;
   } else if (step === 3) {
-      rupiah = "." + rupiah;
-      step = 1;
-  } 
+    rupiah = "." + rupiah;
+    step = 1;
+  }
 }
 
-if(rupiah[0] === "."){
-  rupiah = rupiah.substring(1)
-  console.log(rupiah)
+if (rupiah[0] === ".") {
+  rupiah = rupiah.substring(1);
+  console.log(rupiah);
 }
 
 console.log(`Rp${rupiah},00`);
@@ -157,9 +157,18 @@ if (numberOne < numberTwo) {
 
 // 10. Write a conditional statement to sort three numbers
 let numberThree = 18;
+let arrNumber = [numberOne, numberTwo, numberThree];
 
-if (numberOne < numberTwo) {
+for (let i = 0; i <= arrNumber.length - 1; i++) {
+  for (let j = 0; j<= arrNumber.length - i - 1; j++ ){
+    if (arrNumber[j]>arrNumber[j+1]){
+      let temp = arrNumber[j+1];
+      arrNumber[j+1] = arrNumber[j];
+      arrNumber[j] = temp;
+    }
+  }
 }
+console.log(arrNumber);
 
 // 11. Write a code that shows 1 if the input is a string, 2 if the input is a number, and 3 for others data type.
 let inputUser = true;
