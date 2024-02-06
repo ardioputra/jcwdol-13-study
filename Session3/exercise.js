@@ -68,7 +68,7 @@ console.log(`${valueKilo} km`);
 //   })
 // );
 
-let numberCurrency = "1233";
+let numberCurrency = "1000000";
 let rupiah = "";
 let step = 1;
 
@@ -76,11 +76,17 @@ for (let i = 0; i < numberCurrency.length; i++) {
   rupiah = numberCurrency[numberCurrency.length - 1 - i] + rupiah;
   if (step !== 3) {
     step += 1;
-  } else if(step === 3){
-    rupiah = "." + rupiah;
-    step = 1;
-  }
+  } else if (step === 3) {
+      rupiah = "." + rupiah;
+      step = 1;
+  } 
 }
+
+if(rupiah[0] === "."){
+  rupiah = rupiah.substring(1)
+  console.log(rupiah)
+}
+
 console.log(`Rp${rupiah},00`);
 
 // 5. Write a code to remove the first occurrence of a given “search string” from a string
