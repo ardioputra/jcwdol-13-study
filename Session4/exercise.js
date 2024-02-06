@@ -80,7 +80,21 @@ removeoddNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 
 /* 5. Write a function to split a string and convert it into an array of words*/
 const splitString = (string) => {
-  return console.log(string.split(" "));
+  let newWord = ""
+  let resultArray = []
+
+  for(let i = 0; i<string.length; i++){
+    if(string[i] !== " "){
+      newWord += string[i];
+    } else {
+      resultArray.push(newWord)
+      newWord = "";
+    }
+  }
+  if(newWord !== ""){
+    resultArray.push(newWord);
+  }
+  return console.log(resultArray);
 };
 
 splitString("Hello World");

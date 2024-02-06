@@ -1,11 +1,11 @@
 function greeting(name){
     const defaultMessage = "Hello ";
 
-    return function(lastName){
-        return `${defaultMessage} ${name} ${lastName}`
+    return function(){
+        return `${defaultMessage} ${name}`
     }
 }
 
 const result = greeting("Budi");
-console.log(result("Slamet"));
-console.log(greeting("Dodo")("Slamet"));
+console.log(result());
+console.log(greeting("Dodo")());
