@@ -42,3 +42,45 @@ const fizzbuzzPrint = (n) => {
 };
 
 fizzbuzzPrint(15);
+
+/* 3. Create a function to calculate Body Mass Index (BMI) */
+
+const bmiCalculator = (weight, height) => {
+  let result = weight / (height * height);
+  console.log(result);
+  if (result < 18.5) {
+    return console.log("less weight");
+  } else if (result >= 18.5 && result <= 24.9) {
+    return console.log("ideal");
+  } else if (result >= 25.0 && result <= 29.9) {
+    return console.log("overweight");
+  } else if (result >= 30.0 && result <= 39.9) {
+    return console.log("very overweight");
+  } else {
+    return console.log("obesity");
+  }
+};
+
+bmiCalculator(110, 1.78);
+
+/* 4. Write a function to remove all odd numbers in an array and return a new array that contains even
+numbers only */
+
+const removeoddNumbers = (array) => {
+  let result = [];
+  for (let i = 1; i <= array.length; i++) {
+    if (array[i] % 2 == 0) {
+      result.push(array[i]);
+    }
+  }
+  return console.log(result);
+};
+
+removeoddNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+
+/* 5. Write a function to split a string and convert it into an array of words*/
+const splitString = (string) => {
+  return console.log(string.split(" "));
+};
+
+splitString("Hello World");
