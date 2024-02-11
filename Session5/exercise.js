@@ -228,7 +228,7 @@ const sumDuplicateValues = (arr) => {
 
 console.log(sumDuplicateValues([10, 20, 20, 40, 10, 50, 30, 10, 60, 10]));
 
-/** Write a game of rock, paper, scissor function that will return 'Win' or 'Lose'. The function will randomly pick
+/** 15. Write a game of rock, paper, scissor function that will return 'Win' or 'Lose'. The function will randomly pick
 between rock, paper, or scissor. */
 
 const rockPaperScissor = (option) => {
