@@ -1,11 +1,22 @@
 /** Write a function to get the lowest, highest and average value in the array (with and without sort function).*/
 const arrayOfNumber = (arr) => {
   let total = 0;
-
+  // let min=arr[0];
+  // let max=arr[0];
   //for finding total
   for (let i = 0; i < arr.length; i++) {
     total += arr[i];
   }
+  // without sorting 
+  // for (let i=0;i<arr.length;i++){
+  //   if(arr[i] < min){
+  //     min = arr[i];
+  //   }
+  //   if(arr[i] > max){
+  //     max = arr[i]
+  //   }
+  //   total += arr[i]
+  // }
 
   //for sorting array
   for (let i = 0; i < arr.length; i++) {
@@ -109,7 +120,7 @@ array can only contain 5 elements). */
 const maxSizedArray = (size, ...numbers) => {
   let res = [];
   for (let i = 0; i < size; i++) {
-    res.push(numbers[i]);
+    if(numbers[i]!==undefined)res.push(numbers[i]);
   }
   return res;
 };
@@ -118,19 +129,22 @@ console.log(maxSizedArray(5, 5, 10, 24, 3, 6, 7, 8));
 
 /** 8. Write a function that will combine 2 given array into one array*/
 const mergeTwoArray = (arrOne, arrTwo) => {
-  let res = [];
-  res.push(...arrOne, ...arrTwo);
+  let res = [...arrOne, ...arrTwo];
   return res;
 };
 
 console.log(mergeTwoArray([1, 2, 3], [4, 5, 6]));
 
 /** 9. Write a function to find duplicate values in an array */
+// BUGGED
 const findDuplicate = (arr) => {
   let res = [];
+  let sortedArr = arr.sort()
   for (let i = 0; i < arr.length; i++) {
-    if (arr.indexOf(arr[i], i + 1) !== -1 && res.indexOf(arr[i]) === -1) {
-      res.push(arr[i]);
+    if(sortedArr[i]===sortedArr[i-1]||sortedArr[i]===sortedArr[i+1]){
+      if(!res.find(x => x == sortedArr[i])){
+        res.push(sortedArr[i])
+      }
     }
     // if (arr[i] === arr[i - 1]) {
     //   if (!res.includes(arr[i])) {
@@ -169,30 +183,21 @@ arr = [1, [], undefined, {}, "string", {}, []];*/
 const primitiveDataOnly = (arr) => {
   let res = [];
   for (let i = 0; i < arr.length; i++) {
-    if (typeof arr[i] !== "object") res.push(arr[i]);
+    if (typeof arr[i] !== "object" || arr[i] === null) res.push(arr[i]);
   }
   return res;
 };
 
-console.log(primitiveDataOnly([1, [], undefined, {}, "string", {}, []]));
+console.log(primitiveDataOnly([1, [], undefined, {}, "string", {}, [],null,true]));
 
 /** 12. Write a function from a given array of numbers and return the second smallest number */
-
+//BUGGED
 const secondSmallestNumber = (arr) => {
-  let first = Number.MAX_VALUE;
-  let second = Number.MAX_VALUE;
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] < first) {
-      first = arr[i];
-    }
-    if (arr[i] < second && arr[i] > first) {
-      second = arr[i];
-    }
-  }
-  return second;
+  let sort = arr.sort((a,b)=>a-b)
+  return sort[1]
 };
 
-console.log(secondSmallestNumber([5, 3, 1, 7, 2, 6]));
+console.log(secondSmallestNumber([5, 3, 1, 7, 2, 6,1,1]));
 
 /* 13. Write a function from a given array of mixed data types and return the sum of all the number*/
 
