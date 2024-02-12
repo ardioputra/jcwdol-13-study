@@ -3,19 +3,19 @@ let student = [
   {
     name: "Budi",
     email: "Budi123@gmail.com",
-    age: new Date(2000,9,11),
+    age: new Date(2000, 9, 11),
     score: 95,
   },
   {
     name: "Slamet",
     email: "slamet321@gmail.com",
-    age: new Date(2002,9,11),
+    age: new Date(2002, 9, 11),
     score: 100,
   },
   {
     name: "Chandra",
     email: "chandra222@gmail.com",
-    age: new Date(2005,9,11),
+    age: new Date(2005, 9, 11),
     score: 75,
   },
 ];
@@ -29,7 +29,9 @@ const calculateArray = (arr) => {
   // for putting values inside other variables
   for (let i = 0; i < arr.length; i++) {
     scoreValue.push(arr[i].score);
-    ageValue.push(new Date().getFullYear() - new Date(student[i].age).getFullYear());
+    ageValue.push(
+      new Date().getFullYear() - new Date(student[i].age).getFullYear()
+    );
   }
 
   // for sorting Score value
@@ -58,76 +60,77 @@ const calculateArray = (arr) => {
   for (let i = 0; i < ageValue.length; i++) {
     totalAge += ageValue[i];
   }
-  
-  // for summing score value   
+
+  // for summing score value
   for (let i = 0; i < scoreValue.length; i++) {
     totalScore += scoreValue[i];
   }
 
   let scoreData = {
-    Highest: scoreValue[scoreValue.length-1],
+    Highest: scoreValue[scoreValue.length - 1],
     Lowest: scoreValue[0],
-    Average: totalScore/scoreValue.length
-  }
+    Average: totalScore / scoreValue.length,
+  };
 
   let ageData = {
-    Highest: ageValue[ageValue.length-1],
+    Highest: ageValue[ageValue.length - 1],
     Lowest: ageValue[0],
-    Average: totalAge/ageValue.length
-  }
+    Average: totalAge / ageValue.length,
+  };
 
-  return{
+  return {
     Score: scoreData,
-    Age: ageData
-  }
+    Age: ageData,
+  };
 };
 
-console.log(calculateArray(student))
+console.log(calculateArray(student));
 
 // 2. Create a program to create transaction
 class Product {
-    constructor(name, price){
-        this.name = name;
-        this.price = price;
-    }
+  constructor(name, price) {
+    this.name = name;
+    this.price = price;
+  }
 }
 
-class Transaction extends Product{
-    
-    constructor(){
-        super();
-        this.total = 0;
-        this.Qty = [];
-        this.allProduct = []; 
-    }
-    add2Cart(product, quantity){
-        this.allProduct.push(product);
-        this.Qty.push(quantity);
-        this.total += product.price * quantity;
-    }
+class Transaction extends Product {
+  constructor() {
+    super();
+    this.total = 0;
+    this.qty = [];
+    this.products = [];
+  }
+  addToCart(product, quantity) {
+    this.products.push(product);
+    this.qty.push(quantity);
+    this.total += product.price * quantity;
+  }
 
-    showTotal(){
-        return `\nTotal = $${this.total}\n`
+  showTotal() {
+    return `\nTotal = $${this.total}\n`;
+  }
+
+  checkOut() {
+    this.result = "";
+    for (let i = 0; i < this.products.length; i++) {
+      this.result += `${this.products[i].name} x ${this.qty[i]} = $${
+        this.products[i].price * this.qty[i]
+      }\n`;
     }
-    
-    checkOut(){
-        this.result="";
-        for(let i = 0; i<this.allProduct.length; i++){
-            this.result += `${this.allProduct[i].name} x ${this.Qty[i]} = $${this.allProduct[i].price * this.Qty[i]}\n`
-        }
-        return `${this.result}------------------------------\nAll Total: $${this.total}`
-    }
+    return `${this.result}------------------------------\nAll Total: $${this.total}`;
+  }
 }
 
 const product1 = new Product("Nvidia", 1000);
 const product2 = new Product("AMD", 500);
 const product3 = new Product("Logitik", 2500);
 
-const transaction = new Transaction()
+const transaction = new Transaction();
 
-transaction.add2Cart(product1,1);
-transaction.add2Cart(product2,2);
-transaction.add2Cart(product2,3);
+transaction.addToCart(product1, 1);
+transaction.addToCart(product2, 2);
+transaction.addToCart(product2, 3);
 
-console.log(transaction.showTotal())
-console.log(transaction.checkOut())
+console.log(transaction.showTotal());
+console.log(transaction.checkOut());
