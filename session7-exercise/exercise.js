@@ -14,13 +14,8 @@ const compareObject = (obj1, obj2) => {
   //   }
   // }
 
-  // if (JSON.stringify(obj1) === JSON.stringify(obj2)) {
-  //   return true;
-  // }
-  if (_.isEqual(obj1, obj2)) {
+  if (JSON.stringify(obj1) === JSON.stringify(obj2)) {
     return true;
-  } else {
-    return false;
   }
 };
 
@@ -148,12 +143,9 @@ class ShootingGame extends Player {
   }
 
   getRandomItem() {
-    const randomNums = (min, max) => {
-      return Math.floor(Math.random() * (max - min + 1) + min);
-    };
     return {
-      health: randomNums(0, 10),
-      power: randomNums(0, 10),
+      health: Math.random() * 2 == 1 ? 10 : 0,
+      power: Math.random() * 2 == 1 ? 10 : 0,
     };
   }
 
@@ -185,9 +177,6 @@ class ShootingGame extends Player {
     }
   }
 }
-let playerOne = new Player("Budi");
-let playerTwo = new Player("Slamet");
-
 const game1 = new ShootingGame(playerOne, playerTwo);
 
 console.log(game1.start());
