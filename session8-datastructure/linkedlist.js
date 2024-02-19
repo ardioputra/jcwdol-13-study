@@ -33,10 +33,12 @@ class LinkedList {
     let current;
     if (this.head == null) {
       this.head = node;
-      console.log(node);
+      console.log(this.head);
     } else {
+      console.log(current);
       current = this.head;
-      while (current.next) {
+      console.log(current);
+      while (current.next) {;
         current = current.next;
       }
       current.next = node;
@@ -48,9 +50,12 @@ class LinkedList {
   printList() {
     let list = [];
     let current = this.head;
+    console.log(this.head)
     while (current) {
       list.push(current.element);
+      console.log(current.element)
       current = current.next;
+      console.log(current)
     }
     return list;
   }
