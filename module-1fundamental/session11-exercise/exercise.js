@@ -19,7 +19,7 @@ const majority = (arr) => {
   );
 };
 
-console.log(majority([2,2,1,1,2]))
+console.log(majority([2, 2, 1, 1, 2]));
 
 console.log(findModeInArray([3, 2, 3]));
 console.log(findModeInArray([2, 2, 1, 1, 1, 2, 2]));
@@ -38,8 +38,61 @@ Example 3:
 ○ Output: 1994
 ○ Explanation: M = 1000, CM = 900, XC = 90 and IV = 4. */
 
-/*
-4. You are given an array prices where prices[i] is the price of a given stock on the i day.
+const romanToInt = (roman) => {
+  const romanNumerals = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000,
+  };
+
+  let result = 0;
+
+  for (let i = 0; i < roman.length; i++) {
+    const currentSymbol = romanNumerals[roman[i]];
+    const nextSymbol = romanNumerals[roman[i + 1]];
+
+    if (nextSymbol && currentSymbol < nextSymbol) {
+      result += nextSymbol - currentSymbol;
+      i++;
+    } else {
+      result += currentSymbol;
+    }
+  }
+
+  return result;
+};
+console.log(romanToInt("XII"));
+
+/* 3. Given an integer numRows, return the ﬁrst numRows of
+Pascal's triangle */
+
+const generatePascalsTriangle = (numRows) => {
+  if (numRows <= 0) {
+    return [];
+  }
+
+  const result = [[1]];
+
+  for (let i = 1; i < numRows; i++) {
+    const row = [1];
+
+    for (let j = 1; j < i; j++) {
+      row[j] = result[i - 1][j - 1] + result[i - 1][j];
+    }
+
+    row.push(1);
+    result.push(row);
+  }
+
+  return result;
+};
+
+console.log(generatePascalsTriangle(5))
+/* 4. You are given an array prices where prices[i] is the price of a given stock on the i day.
 You want to maximize your proﬁt by choosing a single day to buy one stock and choosing a diﬀerent
 day in the future to sell that stock.
 Return the maximum proﬁt you can achieve from this transaction. 
