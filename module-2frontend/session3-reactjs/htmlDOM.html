@@ -1,0 +1,39 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML+Javascript DOM</title>
+  </head>
+  <body>
+    <h1 id="myElement">Original Text</h1>
+    <h2 id="myElement2">Tag Lama</h2>
+    <button onclick="updateText()">Update Text</button>
+    <button onclick="updateTag()">Update Tag</button>
+
+    <hr />
+    <!-- parent element -->
+    <div id="konten1">
+      <!-- child element -->
+      <h1 id="title1">Ini adalah Create Element</h1>
+      <p id="desc1">Akan menambahkan element baru</p>
+    </div>
+    <button onclick="createElement()">Create Element</button>
+
+    <script>
+      function updateText() {
+        const element = document.getElementById("myElement");
+        element.innerText = "Updated Text!";
+      }
+      function updateTag() {
+        const element = document.getElementById("myElement2");
+        element.innerHTML = "<p>Tag Baru!</p>";
+      }
+      function createElement() {
+        const newH2 = document.createElement("h2");
+        newH2.textContent = "Ini adalah element baru";
+        const parentElement = document.getElementById("konten1");
+        parentElement.appendChild(newH2);
+      }
+    </script>
+  </body>
+</html>
