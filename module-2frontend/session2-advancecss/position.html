@@ -1,0 +1,50 @@
+<html lang="en">
+  <head>
+    <style>
+      body {
+        height: 2000px;
+      }
+      div.static {
+        position: static;
+        border: 2px solid black;
+        /* gabakal kedeteksi top left right bottom */
+        left: 3000px;
+      }
+      div.relative {
+        position: relative;
+        border: 2px solid black;
+        /* perlu top left dll */
+        left: 30px;
+      }
+      div.absolute {
+        position: absolute;
+        border: 2px solid black;
+        right: 80px;
+      }
+      div.fixed {
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 300px;
+        border: 3px solid black;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced CSS</title>
+  </head>
+  <body>
+    <h1>Position Static</h1>
+    <div class="static">The div element has position: static;</div>
+    <h1>Position Relative</h1>
+    <div class="relative">
+      The div element has position: relative;
+      <!-- harus ada ancestornya, akan mengikuti parentnya -->
+      <h1>Position Absolute</h1>
+      <div class="absolute">The div element has position: absolute;</div>
+    </div>
+    <h1>Position Fixed</h1>
+    <div class="fixed">The div element has position: fixed;</div>
+    <a href="mediaQuery.html" target="_blank">mediaQuery</a>
+  </body>
+</html>

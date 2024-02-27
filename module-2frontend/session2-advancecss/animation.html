@@ -1,0 +1,78 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>animation</title>
+    <style>
+      body {
+        background: linear-gradient(yellow, red, green);
+      }
+      .box {
+        width: 400px;
+        height: 400px;
+        margin: 50px;
+        background-color: purple;
+        /* translate pindah doang */
+        /* transform: translate(100px, 100px); */
+        /* rotate merotasi div */
+        /* transform: rotate(-20deg); */
+        /* transform: perspective(700px) translateX(100px) translateY(100px); */
+        /* transform: scale(2) skew(40deg); */
+        animation-name: changingcolors;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+        /* animation: changingcolors 4s infinite; */
+      }
+
+      @keyframes example {
+        from {
+          background-color: purple;
+        }
+        to {
+          background-color: red;
+        }
+      }
+
+      @keyframes changingcolors {
+        0% {
+          position: relative;
+          background-color: red;
+          left: 0px;
+          top: 0px;
+          transform: rotate(72deg);
+        }
+        25% {
+          position: relative;
+          background-color: yellow;
+          left: 200px;
+          top: 0px;
+          transform: rotate(144deg);
+        }
+        50% {
+          position: relative;
+          background-color: blue;
+          left: 200px;
+          top: 200px;
+          transform: rotate(216deg);
+        }
+        75% {
+          position: relative;
+          background-color: green;
+          left: 0px;
+          top: 200px;
+          transform: rotate(288deg);
+        }
+        100% {
+          position: relative;
+          background-color: red;
+          left: 0px;
+          top: 0px;
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+  </body>
+</html>
